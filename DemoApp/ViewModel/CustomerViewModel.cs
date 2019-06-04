@@ -27,8 +27,10 @@ namespace DemoApp.ViewModel
 
         public CustomerViewModel(Customer customer, CustomerRepository customerRepository)
         {
-            _customer = customer ?? throw new ArgumentNullException("customer");
-            _customerRepository = customerRepository ?? throw new ArgumentNullException("customerRepository");
+            if (customer == null) throw new ArgumentNullException("customer");
+            _customer = customer;
+            if (customerRepository == null) throw new ArgumentNullException("customerRepository");
+            _customerRepository = customerRepository;
             _customerType = Strings.CustomerViewModel_CustomerTypeOption_NotSpecified;
         }
 

@@ -39,7 +39,7 @@ namespace DemoApp.DataAccess
       {
         _customers.Add(customer);
 
-        this.CustomerAdded?.Invoke(this, new CustomerAddedEventArgs(customer));
+        if (this.CustomerAdded != null) this.CustomerAdded.Invoke(this, new CustomerAddedEventArgs(customer));
       }
     }
     
